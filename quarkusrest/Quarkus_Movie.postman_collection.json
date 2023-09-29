@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "be3be1d3-78a6-4f9f-a73d-0f9ad9822263",
+		"name": "Quarkus_Student",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20559390"
+	},
+	"item": [
+		{
+			"name": "Endpoints_Tests",
+			"item": [
+				{
+					"name": "get all movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "secretKey",
+									"value": "rBndRVR8LQiGIbeZLXxLZzLJLme7a1rXf1t+wLL9",
+									"type": "string"
+								},
+								{
+									"key": "accessKey",
+									"value": "AKIAUW2YU64SZKOHPQEB",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a movie by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/62fddab481a384466d80cc1e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"62fddab481a384466d80cc1e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movies by a page number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/paged/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"paged",
+								"1"
+							]
+						},
+						"description": " read 20 json-objects in a json-array in a paged way"
+					},
+					"response": []
+				},
+				{
+					"name": "add a new movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \"email\": \"kk2@gmail.com\",\n        \"title\": \"love death\",\n        \"year\": \"1998\",\n        \"imdbID\": \"1998\",\n        \"poster\": \"not existed\",\n        \"comment\": \"bad\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								""
+							]
+						},
+						"description": "send the json-object and add the object. Do not include the id in the json-object. The id will be auto-gen by Mongo. "
+					},
+					"response": []
+				},
+				{
+					"name": "delete the movie by given id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/delete/62fddab481a384466d80cc1e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"delete",
+								"62fddab481a384466d80cc1e"
+							]
+						},
+						"description": "delete the object, use the native _id, and return all students"
+					},
+					"response": []
+				},
+				{
+					"name": "update a movie by given id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\":\"great\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/update/62fdde2a81a384466d80cc21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"update",
+								"62fdde2a81a384466d80cc21"
+							]
+						},
+						"description": "update the object, use the native _id field, and return all students"
+					},
+					"response": []
+				},
+				{
+					"name": "get movies by email",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get movies by title",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negative_Tests",
+			"item": [
+				{
+					"name": "get a movie with invalid id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/8888",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"8888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a movie with not exist id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"university\": \"uchicago\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/62eb14f809ad7323bad3f099",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"62eb14f809ad7323bad3f099"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a movie with missing attributes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"blabla\": \"bla\",\n    \"university\": \"uchicago\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a movie that does not existed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/delete/62eb114096548c2d8870cb82",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"delete",
+								"62eb114096548c2d8870cb82"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a movie with invalid id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/delete/8888",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"delete",
+								"8888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a movie with invalid input",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name1\": \"kk\",\n    \"university1\": \"uchicago\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/update/62eb14f809ad7323bad3f09a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"update",
+								"62eb14f809ad7323bad3f09a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a movie that doesn't exist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\": \"bad\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/update/62eb14f809ad7323bad3f091",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"update",
+								"62eb14f809ad7323bad3f091"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a movie with invalid id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"kk\",\n    \"university\": \"uchicago\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/update/8888",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"update",
+								"8888"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

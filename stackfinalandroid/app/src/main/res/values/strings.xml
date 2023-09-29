@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Favorite Places</string>
+    <string name="yelp3_key">Bearer -elNL-P-OhrIvIpuxdB2yBbl-bxnAUvDe5MmObFxh7H9EoQD0ThM71uuhmzDU9ZcH9klqE3rg6VdxnwRpKUVtC9m-LyNh9glJqrxM7uQbiawIt5_wsRtunVg3mb4YnYx</string>
+<!--    <string name="yelp3_key">Bearer lqei9yL_my_bogus_key_HPkqicE4e7HWR_my_bogus_key_RZY5k7Clrx_YHYx</string>-->
+    <string name="user_pool_id">us-east-1_xqfEXYHGs </string>
+    <string name="client_id">278h4qgrdb2pcpur9c9cp27gb7</string>
+</resources>
